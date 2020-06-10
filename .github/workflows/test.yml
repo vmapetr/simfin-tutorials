@@ -41,7 +41,7 @@ jobs:
     - name: Install requirements
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        apt-get -y purge haveged
+        sudo apt-get -y purge haveged
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pytest nbval
