@@ -35,7 +35,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v1
       with:
-        python-version: '3.7.6'
+        python-version: '3.7'
 
     # Install all requirements to run these tests.
     - name: Install requirements
@@ -43,7 +43,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pytest nbval
+        pip install pytest==5.4.1 nbval
 
     # Ensure the SimFin data-dir is removed.
     # It is unclear from the docs exactly how the cache works, so we make sure
