@@ -33,9 +33,9 @@ jobs:
 
     # Run with a Python version that we know works.
     - name: Setup Python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
-        python-version: '3.7'
+        python-version: '3.7.6'
 
     # Install all requirements to run these tests.
     - name: Install requirements
