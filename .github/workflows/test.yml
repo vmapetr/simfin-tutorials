@@ -33,17 +33,18 @@ jobs:
 
     # Run with a Python version that we know works.
     - name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v1
       with:
-        python-version: '3.7.6'
+        python-version: '3.7'
 
     # Install all requirements to run these tests.
     - name: Install requirements
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
+        apt-get -y purge haveged
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pytest==5.4.1 nbval
+        pip install pytest nbval
 
     # Ensure the SimFin data-dir is removed.
     # It is unclear from the docs exactly how the cache works, so we make sure
